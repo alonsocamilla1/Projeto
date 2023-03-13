@@ -21,6 +21,7 @@ public class Movimentacao {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
 
     @Column(nullable = false)
     private int numSeq;
@@ -30,6 +31,14 @@ public class Movimentacao {
     private int tipoOperacao;
     
     @Column(length = 255)
+=======
+    @Column(nullable = false)
+    private int numSeq;
+    private Date dataOperacao;
+    private double valor;
+    private int tipoOperacao;
+    @Column(lenght = 255)
+>>>>>>> af72bee43934da1048bfe21338569c975cb6adf0
     private String descricao;
 
     @ManyToOne
