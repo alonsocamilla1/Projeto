@@ -16,15 +16,15 @@ public class Cliente {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCliente;
+    private int id;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 100)
     private String nomeCliente;
 
-    @Column(length = 20, nullable = false, unique = true)
+    @Column(length = 20, unique = true)
     private String cpfCliente;
 
-    @Column(length = 20, nullable = false, unique = true)
+    @Column(length = 20, unique = true)
     private String telefoneCliente;
 }
 

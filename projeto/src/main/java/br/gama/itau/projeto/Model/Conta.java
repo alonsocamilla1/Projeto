@@ -22,6 +22,6 @@ public class Conta {
     private Double saldo;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente")
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
 }
