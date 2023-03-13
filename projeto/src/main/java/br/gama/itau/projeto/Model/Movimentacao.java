@@ -26,7 +26,7 @@ public class Movimentacao {
     private Date dataOperacao;
     private double valor;
     private int tipoOperacao;
-    @Column(lenght = 255)
+    @Column(length = 255)
     private String descricao;
 
     @ManyToOne
