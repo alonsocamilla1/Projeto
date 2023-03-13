@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.Service;
+package br.gama.itau.projeto.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.gama.itau.projeto.DTO.ClienteDTO;
-import br.gama.itau.projeto.Model.Cliente;
-import br.gama.itau.projeto.Repositorio.ClienteRepo;
+import br.gama.itau.projeto.dto.ClienteDTO;
+import br.gama.itau.projeto.model.Cliente;
+import br.gama.itau.projeto.repositorio.ClienteRepo;
 
 @Service
 public class ClienteService {

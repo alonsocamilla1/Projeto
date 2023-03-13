@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.Model;
+package br.gama.itau.projeto.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

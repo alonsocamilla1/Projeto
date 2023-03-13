@@ -1,6 +1,6 @@
-package br.gama.itau.projeto.DTO;
+package br.gama.itau.projeto.dto;
 
-import br.gama.itau.projeto.Model.Cliente;
+import br.gama.itau.projeto.model.Cliente;
 
 public class ClienteDTO {
     private int id;

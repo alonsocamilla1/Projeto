@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.Model;
+package br.gama.itau.projeto.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
