@@ -33,5 +33,16 @@ public class ContaService {
         Conta clienteEncontrado = contaOptional.get();
         return clienteEncontrado;
     }    
+
+    public Conta alterarDados(int numeroConta, Conta c, Double saldo) {
+        Optional<Conta> contaOptional = repo.findById(numeroConta);
+
+        if(contaOptional.isEmpty()) {
+            return null;
+        }
+        c.setSaldo(saldo);
+        Conta saldoAtualizado = repo.save(c);
+        return saldoAtualizado;
+    }
 }
 

@@ -16,10 +16,10 @@ import lombok.Setter;
 public class Conta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long numeroConta;
-    private Integer agencia;
-    private Integer tipoConta;
-    private Double saldo;
+    private int numeroConta;
+    private int agencia;
+    private int tipoConta;
+    private double saldo;
 
     @ManyToOne
     @JoinColumn(name = "idCliente")
