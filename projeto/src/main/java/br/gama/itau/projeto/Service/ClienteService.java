@@ -26,8 +26,6 @@ public class ClienteService {
         return clienteInserido;
     }
     
-    
-
     public List<ClienteDTO> recuperarTodos() {
         List<Cliente> lista = (List<Cliente>) repo.findAll();
 
