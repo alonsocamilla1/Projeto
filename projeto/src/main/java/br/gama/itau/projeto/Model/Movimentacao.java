@@ -2,6 +2,7 @@ package br.gama.itau.projeto.Model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,13 +21,15 @@ public class Movimentacao {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long numSeq;
+    @Column(nullable = false)
+    private int numSeq;
     private Date dataOperacao;
-    private Double valor;
-    private Integer tipoOperacao;
+    private double valor;
+    private int tipoOperacao;
+    @Column(lenght = 255)
     private String descricao;
 
     @ManyToOne
-    @JoinColumn(name = "numero_conta")
+    @JoinColumn(name = "numeroConta")
     private Conta conta;
 }
