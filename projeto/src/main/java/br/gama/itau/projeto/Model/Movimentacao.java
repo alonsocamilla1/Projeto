@@ -1,6 +1,7 @@
 package br.gama.itau.projeto.model;
 
-import java.sql.Date;
+//import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,11 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 
 @Entity
+@Builder
 @Getter
 @Setter
 public class Movimentacao {
@@ -28,7 +31,7 @@ public class Movimentacao {
     @Column(nullable = false)
     private int numSeq;
    
-    private Date dataOperacao;
+    private LocalDate dataOperacao;
     private double valor;
     private int tipoOperacao;
 
