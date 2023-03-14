@@ -1,54 +1,52 @@
-package br.gama.itau.projeto.Service;
+package br.gama.itau.projeto.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.gama.itau.projeto.DTO.ClienteDTO;
-import br.gama.itau.projeto.Model.Cliente;
-import br.gama.itau.projeto.Repositorio.ClienteRepo;
+import br.gama.itau.projeto.model.Cliente;
+import br.gama.itau.projeto.repositorio.ClienteRepo;
+import  br.gama.itau.projeto.exception.NotFoundException;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class ClienteService {
 
+    // Injeção de dependência
     @Autowired
     private ClienteRepo repo;
- 
-    public Cliente cadastrarCliente(Cliente c) {
-        if(c.getId() > 0) {
+
+    // Método que cadastra um novo cliente
+    // Recebe como entrada um objeto do tipo cliente e retorna-o completo caso ele tenha sido cadastrado com sucesso
+    // Senão, retorna nulo (null)
+    public Cliente cadastrarCliente(Cliente novoCliente) {
+        if(novoCliente.getId() > 0) {
             return null;
         }
-        Cliente clienteInserido = repo.save(c);
-        return clienteInserido;
-    }
-    
-    
-
-    public List<ClienteDTO> recuperarTodos() {
-        List<Cliente> lista = (List<Cliente>) repo.findAll();
-
-        List<ClienteDTO> listaDTO = new ArrayList<>();
-
-        for (Cliente c : lista) {
-            listaDTO.add(new ClienteDTO(c));
-        }
-
-        return listaDTO;
+        Cliente clienteInserido = repo.save(novoCliente);
+        return clienteInserido; 
     }
 
-    public Cliente recuperarPeloID(int id) throws NotFoundException{
+    // Método que retorna uma lista com todos os clientes cadastrados (apenas dados de cliente)
+    public List<Cliente> recuperarTodos() {
+        return (List<Cliente>) repo.findAll();
+    }
+
+    // Método que recebe um ID de cliente e retorna seus dados se encontrado
+    // Caso não foi encontrado, retorna uma exceção
+    public Cliente recuperarPeloId(int id) {
         Optional<Cliente> clienteOptional = repo.findById(id);
 
         if (clienteOptional.isEmpty()) {
-            throw new NotFoundException();
+            throw new NotFoundException("Cliente não encontrado");
         }
 
         Cliente clienteEncontrado = clienteOptional.get();
         return clienteEncontrado;
     }
+
    
 }
