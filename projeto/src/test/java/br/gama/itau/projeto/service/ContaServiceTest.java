@@ -20,6 +20,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import br.gama.itau.projeto.exception.NotFoundException;
 import br.gama.itau.projeto.model.Conta;
 import br.gama.itau.projeto.repositorio.ContaRepo;
+import br.gama.itau.projeto.repositorio.ClienteRepo;
 import br.gama.itau.projeto.util.GenerateConta;
 
 @ExtendWith(MockitoExtension.class)
@@ -28,6 +29,9 @@ public class ContaServiceTest {
     @InjectMocks
     private ContaService service;
 
+    @Mock
+    private ClienteRepo repo;
+    
     @Mock
     private ContaRepo repo;
 
@@ -103,6 +107,7 @@ public class ContaServiceTest {
         });
     }
 
+    // Teste incompleto
     @Test
     public void recuperarContasPeloCliente_returnListaConta_whenIdExist() {
         List<Conta> listaContas = new ArrayList<>();
@@ -111,11 +116,11 @@ public class ContaServiceTest {
 
         BDDMockito.when(repo.findAll()).thenReturn(listaContas);
 
-        List<Conta> listaRecuperada = service.recuperarContasPeloCliente(1);
+        List<Conta> listaRecuperada = service.recuperarContasPeloCliente(0);
 
         assertThat(listaRecuperada).isNotNull();
         assertThat(listaRecuperada).isNotEmpty();
-        assertThat(listaRecuperada.get(0).getIdCliente()).isEqualTo(GenerateConta.contaValida().getIdCliente());
+        assertThat(listaRecuperada.get(0).getCliente()).isEqualTo(GenerateConta.contaValida().getCliente());
 
 
     }
