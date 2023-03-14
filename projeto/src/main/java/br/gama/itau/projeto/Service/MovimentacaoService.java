@@ -29,19 +29,7 @@ public class MovimentacaoService {
     // ===== Fazer com que retorne uma lista de movimentações através do número da conta (numeroConta) =====
     public List<Movimentacao> recuperarTodas(int numeroConta) {
         List<Movimentacao> lista = (List<Movimentacao>) movimentacaoRepo.findAll();
-
         lista = new ArrayList<>();
-
-        for (Movimentacao movimentacao : lista) {
-            lista.add(new Movimentacao(movimentacao));
-        }
-
         return lista;
     }
-
-        return (List<Movimentacao>) movimentacaoRepo.findAll();
-    }
-    
-    
-
 }

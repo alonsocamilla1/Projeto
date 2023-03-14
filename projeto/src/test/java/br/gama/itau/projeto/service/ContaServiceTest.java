@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -101,6 +103,22 @@ public class ContaServiceTest {
         });
     }
 
+    @Test
+    public void recuperarContasPeloCliente_returnListaConta_whenIdExist() {
+        List<Conta> listaContas = new ArrayList<>();
+        listaContas.add(GenerateConta.contaValida());
+        listaContas.add(GenerateConta.contaValida2());
+
+        BDDMockito.when(repo.findAll()).thenReturn(listaContas);
+
+        List<Conta> listaRecuperada = service.recuperarContasPeloCliente(1);
+
+        assertThat(listaRecuperada).isNotNull();
+        assertThat(listaRecuperada).isNotEmpty();
+        assertThat(listaRecuperada.get(0).getIdCliente()).isEqualTo(GenerateConta.contaValida().getIdCliente());
+
+
+    }
 
     
 }
