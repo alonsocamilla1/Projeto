@@ -15,9 +15,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ClienteService {
 
+    // Injeção de dependência
     @Autowired
     private ClienteRepo repo;
 
+    // Método que cadastra um novo cliente
+    // Recebe como entrada um objeto do tipo cliente e retorna-o completo caso ele tenha sido cadastrado com sucesso
+    // Senão, retorna nulo (null)
     public Cliente cadastrarCliente(Cliente novoCliente) {
         if(novoCliente.getId() > 0) {
             return null;
@@ -26,10 +30,13 @@ public class ClienteService {
         return clienteInserido; 
     }
 
+    // Método que retorna uma lista com todos os clientes cadastrados (apenas dados de cliente)
     public List<Cliente> recuperarTodos() {
         return (List<Cliente>) repo.findAll();
     }
 
+    // Método que recebe um ID de cliente e retorna seus dados se encontrado
+    // Caso não foi encontrado, retorna uma exceção
     public Cliente recuperarPeloId(int id) {
         Optional<Cliente> clienteOptional = repo.findById(id);
 
