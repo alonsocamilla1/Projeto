@@ -25,8 +25,8 @@ public class ContaService {
         if(c.getNumeroConta() > 0) {
             return null;
         }
-        Conta clienteInserido = repo.save(c);
-        return clienteInserido;
+        Conta contaAdicionada = repo.save(c);
+        return contaAdicionada;
        
     }
 
@@ -38,20 +38,8 @@ public class ContaService {
             Conta contaEncontrada = contaOptional.get();
             return contaEncontrada;
         }
-    
 
-    public Conta recuperarPeloID(int id) throws NotFoundException{
-        Optional<Conta> contaOptional = repo.findById(id);
-
-        if (contaOptional.isEmpty()) {
-            throw new NotFoundException("Conta não encontrada");
-        }
-
-        Conta clienteEncontrado = contaOptional.get();
-        return clienteEncontrado;
-    }    
-
-    public Conta alterarDados(int numeroConta, Conta c, Double saldo) {
+    public Conta alterarDados(double saldo, Conta c, int numeroConta) {
         Optional<Conta> contaOptional = repo.findById(numeroConta);
 
         if(contaOptional.isEmpty()) {
@@ -62,13 +50,10 @@ public class ContaService {
         return saldoAtualizado;
     }
 
-    public List<Conta> recuperarTodos() {
-        return (List<Conta>) repo.findAll();
-    }
-
     public List<Conta> recuperarContasPeloCliente(int id) {
-        Cliente cliente = clienteRepository.findById(id).orElseThrow();
+        Optional<Cliente> cliente = clienteRepository.findById(id);
         return repo.findByCliente(cliente);
+        }
 }
-}
+
 

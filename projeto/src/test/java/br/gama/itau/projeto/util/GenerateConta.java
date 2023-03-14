@@ -14,10 +14,28 @@ public class GenerateConta {
 
     public static Conta contaValida() {
         return Conta.builder()
-            .numeroConta(2)
+            .numeroConta(1)
             .agencia(1111)
             .tipoConta(2)
             .saldo(10)
+            .build();
+    }
+
+    
+    public static Conta novaContaToSave2() {
+        return Conta.builder()
+            .agencia(2222)
+            .tipoConta(1)
+            .saldo(20)
+            .build();
+    }
+
+    public static Conta contaValida2() {
+        return Conta.builder()
+            .numeroConta(2)
+            .agencia(2222)
+            .tipoConta(1)
+            .saldo(20)
             .build();
     }
 }

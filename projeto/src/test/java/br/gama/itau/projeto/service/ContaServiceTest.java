@@ -30,20 +30,51 @@ public class ContaServiceTest {
     private ContaRepo repo;
 
     @Test
-    public void novaConta_returnAdicionarConta_whenContaValida() {
+    public void alterarDados_returnDadosAlterados_whenContaValida() {
+
+    BDDMockito.when(repo.findById(ArgumentMatchers.any(int.class)))
+                .thenReturn(Optional.of(GenerateConta.contaValida()));
+
+        BDDMockito.when(repo.save(ArgumentMatchers.any(Conta.class)))
+                .thenReturn(GenerateConta.contaValida2());
+
+        Conta contaParaAlterar = GenerateConta.contaValida2();
+
+        Conta dadosAlterados = service.alterarDados(20, contaParaAlterar, 2);
+
+        // verificação
+        assertThat(dadosAlterados).isNotNull();
+        assertThat(dadosAlterados.getNumeroConta()).isEqualTo(2);
+        assertThat(dadosAlterados.getSaldo()).isEqualTo(contaParaAlterar.getSaldo());
+
+        // verifica se o método save foi chamado 1 vez
+        verify(repo, Mockito.times(1)).save(contaParaAlterar);
+    }
+
+    @Test
+    public void adicionarConta_returnContaAdicionada_whenContaValida() {
         BDDMockito.when(repo.save(ArgumentMatchers.any(Conta.class)))
                 .thenReturn(GenerateConta.contaValida());
 
         Conta novaConta = GenerateConta.novaContaToSave();
 
-        Conta contaCriada = service.adicionarConta(novaConta);
+       Conta contaAdicionada = service.adicionarConta(novaConta);
 
-        assertThat(contaCriada).isNotNull();
-        assertThat(contaCriada.getNumeroConta()).isPositive();
-        assertThat(contaCriada.getId()).isEqualTo(novaConta.getId());
+        assertThat(contaAdicionada).isNotNull();
+        assertThat(contaAdicionada.getNumeroConta()).isPositive();
+        assertThat(contaAdicionada.getSaldo()).isEqualTo(novaConta.getSaldo());
 
-        // verifica se o método save foi chamado 1 vez
         verify(repo, Mockito.times(1)).save(novaConta);
+    }
+
+    @Test
+    public void adicionarConta_returnNull_whenContaInvalida() {
+        Conta contaValida = GenerateConta.contaValida();
+        Conta contaAdicionada = service.adicionarConta(contaValida);
+
+        assertThat(contaAdicionada).isNull();
+
+        verify(repo, Mockito.times(0)).save(contaValida);     
     }
 
     @Test

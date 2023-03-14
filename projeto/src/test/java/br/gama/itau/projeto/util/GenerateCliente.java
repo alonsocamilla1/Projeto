@@ -14,7 +14,7 @@ public class GenerateCliente {
 
     public static Cliente clienteValido() {
         return Cliente.builder()
-            .id(1)
+            .idCliente(1)
             .nomeCliente("AAA")
             .cpfCliente("1111")
             .telefoneCliente("11111")

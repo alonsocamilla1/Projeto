@@ -19,7 +19,7 @@ public class ClienteService {
     private ClienteRepo repo;
 
     public Cliente cadastrarCliente(Cliente novoCliente) {
-        if(novoCliente.getId() > 0) {
+        if(novoCliente.getIdCliente() > 0) {
             return null;
         }
         Cliente clienteInserido = repo.save(novoCliente);
@@ -30,8 +30,8 @@ public class ClienteService {
         return (List<Cliente>) repo.findAll();
     }
 
-    public Cliente recuperarPeloId(int id) {
-        Optional<Cliente> clienteOptional = repo.findById(id);
+    public Cliente recuperarPeloId(int idCliente) {
+        Optional<Cliente> clienteOptional = repo.findById(idCliente);
 
         if (clienteOptional.isEmpty()) {
             throw new NotFoundException("Cliente não encontrado");

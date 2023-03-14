@@ -39,8 +39,8 @@ public class ClienteServiceTest {
         Cliente clienteCriado = service.cadastrarCliente(novoCliente);
 
         assertThat(clienteCriado).isNotNull();
-        assertThat(clienteCriado.getId()).isPositive();
-        assertThat(clienteCriado.getId()).isEqualTo(novoCliente.getId());
+        assertThat(clienteCriado.getIdCliente()).isPositive();
+        assertThat(clienteCriado.getIdCliente()).isEqualTo(GenerateCliente.clienteValido().getIdCliente());
 
         // verifica se o método save foi chamado 1 vez
         verify(repo, Mockito.times(1)).save(novoCliente);
@@ -65,10 +65,11 @@ public class ClienteServiceTest {
 
         assertThat(clienteEncontrado)
                 .isNotNull();
-        assertThat(clienteEncontrado.getId())
+        assertThat(clienteEncontrado.getIdCliente())
                 .isGreaterThan(0);
-        assertThat(clienteEncontrado.getId())
-                .isEqualTo(GenerateCliente.clienteValido().getId()).isNotNull();
+        assertThat(clienteEncontrado.getIdCliente())
+                .isEqualTo(GenerateCliente.clienteValido().getIdCliente())
+                .isNotNull();
     }
 
     @Test
@@ -78,7 +79,7 @@ public class ClienteServiceTest {
         // verifica se uma exception do tipo NotFoundException é lançada
         // () -> { } é uma chamada de método anônimo
         assertThrows(NotFoundException.class, () -> {
-            service.recuperarPeloId(clienteValido.getId());
+            service.recuperarPeloId(clienteValido.getIdCliente());
         });
     }
 

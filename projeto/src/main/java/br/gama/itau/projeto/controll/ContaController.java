@@ -27,13 +27,7 @@ public class ContaController {
     public Conta recuperarPeloNumero(@PathVariable int numeroConta) {
         return contaService.recuperarPeloNumero(numeroConta);
     }
-
-    @GetMapping
-    public ResponseEntity<List<Conta>> recuperarTodos() {
-        List<Conta> contas = contaService.recuperarTodos();
-        return new ResponseEntity<List<Conta>>(contas, HttpStatus.OK);
-    }
-
+    
     // - /contas (POST) - para cadastrar uma nova conta, chamando o serviço
     // adicionarConta, podendo retornar 201 ou 400
     @PostMapping
