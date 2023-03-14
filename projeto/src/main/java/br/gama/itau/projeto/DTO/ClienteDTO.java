@@ -1,7 +1,13 @@
 package br.gama.itau.projeto.dto;
 
 import br.gama.itau.projeto.model.Cliente;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class ClienteDTO {
     private int id;
     private String nomeCliente;

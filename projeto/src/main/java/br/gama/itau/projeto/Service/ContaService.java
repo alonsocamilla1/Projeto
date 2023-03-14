@@ -1,9 +1,10 @@
 package br.gama.itau.projeto.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import  br.gama.itau.projeto.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.gama.itau.projeto.model.Conta;
@@ -21,13 +22,24 @@ public class ContaService {
         }
         Conta clienteInserido = repo.save(c);
         return clienteInserido;
+       
     }
+
+    public Conta recuperarPeloNumero(int numeroConta) {
+        Optional <Conta> contaOptional= repo.findById(numeroConta);
+        if(contaOptional.isEmpty()) {
+            throw new NotFoundException("Conta não encontrada"); 
+        } 
+            Conta contaEncontrada = contaOptional.get();
+            return contaEncontrada;
+        }
+    
 
     public Conta recuperarPeloID(int id) throws NotFoundException{
         Optional<Conta> contaOptional = repo.findById(id);
 
         if (contaOptional.isEmpty()) {
-            throw new NotFoundException();
+            throw new NotFoundException("Conta não encontrada");
         }
 
         Conta clienteEncontrado = contaOptional.get();
@@ -43,6 +55,10 @@ public class ContaService {
         c.setSaldo(saldo);
         Conta saldoAtualizado = repo.save(c);
         return saldoAtualizado;
+    }
+
+    public List<Conta> recuperarTodos() {
+        return (List<Conta>) repo.findAll();
     }
 }
 
