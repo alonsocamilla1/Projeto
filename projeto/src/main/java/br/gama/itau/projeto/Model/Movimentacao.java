@@ -19,6 +19,10 @@ import lombok.Setter;
 @Setter
 public class Movimentacao {
     
+    // Modelo de dados da Movimentação
+    // Cria uma tabela Movimentação com número, data da operação, valor, tipo de operação, descrição e número da conta
+    // O número (numSeq) é incrementado automaticamente a cada movimentação criada
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
@@ -30,7 +34,8 @@ public class Movimentacao {
    
     @Column(length = 255)
     private String descricao;
-
+    
+    // A conta é uma coluna de relacionamento N:1 da tabela Movimentação com Conta, pegando a chave estrangeira
     @ManyToOne
     @JoinColumn(name = "numeroConta")
     private Conta conta;
