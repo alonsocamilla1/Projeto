@@ -31,7 +31,7 @@ public class Movimentacao {
     private Date dataOperacao;
     private double valor;
     private int tipoOperacao;
-   
+
     @Column(length = 255)
     private String descricao;
     
