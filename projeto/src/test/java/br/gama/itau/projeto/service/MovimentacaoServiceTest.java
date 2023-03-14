@@ -44,8 +44,24 @@ public class MovimentacaoServiceTest {
 
             verify(repo, Mockito.times(1)).save(novaMovi);
     }
- 
-   // @Test
-   // public void recuperarTodas_returnTodasAsMovimentacoesCadastradas_when
+
+    @Test
+    public void cadastrarMovimentacao_returnNull_whenMovimentacaoNotExist() {
+        Movimentacao novaMovi = GenerateMovi.moviValida();
+
+        Movimentacao moviCadastrada = service.cadastrarMovimentacao(novaMovi);
+
+        assertThat(moviCadastrada).isNull();
+
+        verify(repo, Mockito.times(0)).save(novaMovi);
+    }
+   
+    
+    @Test
+    public void recuperarTodas_returnTodasAsMovimentacoesCadastradas_whenSucesso () {
+        BDDMockito.when(repo.save(ArgumentMatchers.any(Movimentacao.class)))
+                    .thenReturn(GenerateMovi.moviValida());
+
+    }
 }
 
