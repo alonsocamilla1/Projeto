@@ -65,9 +65,8 @@ public class ContaServiceTest {
         Conta contaValida = GenerateConta.novaContaToSave();
 
         // verifica se uma exception do tipo NotFoundException é lançada
-        // () -> { } é uma chamada de método anônimo
         assertThrows(NotFoundException.class, () -> {
-            service.recuperarPeloNumero(contaValida.getId());
+            service.recuperarPeloNumero(contaValida.getNumeroConta());
         });
     }
 
