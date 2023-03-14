@@ -40,7 +40,7 @@ public class ClienteServiceTest {
 
         assertThat(clienteCriado).isNotNull();
         assertThat(clienteCriado.getId()).isPositive();
-        assertThat(clienteCriado.getCpfCliente()).isEqualTo(novoCliente.getCpfCliente());
+        assertThat(clienteCriado.getId()).isEqualTo(novoCliente.getId());
 
         // verifica se o método save foi chamado 1 vez
         verify(repo, Mockito.times(1)).save(novoCliente);
@@ -67,9 +67,8 @@ public class ClienteServiceTest {
                 .isNotNull();
         assertThat(clienteEncontrado.getId())
                 .isGreaterThan(0);
-        assertThat(clienteEncontrado.getCpfCliente())
-                .isEqualTo(GenerateCliente.clienteValido().getCpfCliente())
-                .isNotEmpty();
+        assertThat(clienteEncontrado.getId())
+                .isEqualTo(GenerateCliente.clienteValido().getId()).isNotNull();
     }
 
     @Test

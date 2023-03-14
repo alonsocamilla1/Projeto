@@ -33,5 +33,5 @@ public class Movimentacao {
 
     @ManyToOne
     @JoinColumn(name = "numeroConta")
-    private Conta conta;
+    private Conta numerConta;
 }

@@ -34,7 +34,7 @@ public class ClienteService {
         Optional<Cliente> clienteOptional = repo.findById(id);
 
         if (clienteOptional.isEmpty()) {
-            throw new NotFoundException("Veículo não encontrado");
+            throw new NotFoundException("Cliente não encontrado");
         }
 
         Cliente clienteEncontrado = clienteOptional.get();
