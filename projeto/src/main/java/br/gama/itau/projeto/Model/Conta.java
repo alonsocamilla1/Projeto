@@ -31,6 +31,6 @@ public class Conta {
    // O idCliente é uma coluna de relacionamento N:1 da tabela Conta com Cliente, pegando a chave estrangeira
     @ManyToOne
     @JoinColumn(name = "idCliente")
-    private Cliente idCliente;
+    private Cliente cliente;
 
 }
