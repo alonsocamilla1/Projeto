@@ -16,9 +16,14 @@ public class ClienteService {
     @Autowired
     private ClienteRepo repo;
 
-    public Cliente cadastrarCliente(Cliente cliente) {
-        return repo.save(cliente);
+    public Cliente cadastrarCliente(Cliente novoCliente) {
+        if(novoCliente.getId() > 0) {
+            return null;
+        }
+        Cliente clienteInserido = repo.save(novoCliente);
+        return clienteInserido; 
     }
+    
     public List<Cliente> recuperarTodos() {
         return (List<Cliente>) repo.findAll();
     }

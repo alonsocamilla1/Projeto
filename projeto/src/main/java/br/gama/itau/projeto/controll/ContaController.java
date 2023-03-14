@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +32,23 @@ public class ContaController {
     public ResponseEntity<List<Conta>> recuperarTodos() {
         List<Conta> contas = contaService.recuperarTodos();
         return new ResponseEntity<List<Conta>>(contas, HttpStatus.OK);
+    }
+
+    // - /contas (POST) - para cadastrar uma nova conta, chamando o serviço
+    // adicionarConta, podendo retornar 201 ou 400
+    @PostMapping
+    public ResponseEntity<Conta> adicionarConta(@RequestBody Conta conta) {
+        Conta contaInserido = contaService.adicionarConta(conta);
+        if (contaInserido == null) {
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(contaInserido);
+    }
+
+    @GetMapping("/cliente/{id}")
+    public ResponseEntity<List<Conta>> recuperarContasPeloCliente(@PathVariable int id) {
+        List<Conta> conta = contaService.recuperarContasPeloCliente(id);
+        return ResponseEntity.ok().body(conta);
     }
 
    // @PostMapping
