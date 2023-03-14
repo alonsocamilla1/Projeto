@@ -41,7 +41,7 @@ public class ClienteController {
     //pode retornar status 200 ou 404 se o cliente não existir
     @GetMapping("/{id}")
     public ResponseEntity<Cliente> recuperarPeloID(@PathVariable int id) {
-        Cliente cliente = service.recuperarPeloID(id);
+        Cliente cliente = service.recuperarPeloId(id);
         return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
     }
 }
