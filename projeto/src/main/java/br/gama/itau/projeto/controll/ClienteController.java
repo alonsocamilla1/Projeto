@@ -18,11 +18,13 @@ import br.gama.itau.projeto.service.ClienteService;
 @RequestMapping("/clientes")
 public class ClienteController {
 
+    // Injeção de dependência
     @Autowired
     private ClienteService service;
 
     //-	/clientes (POST) - chama o serviço cadastrarCliente 
-    //e pode retornar status 201 ou 400.
+    // e pode retornar status 201 (created) ou 400 (bad request).
+    // ===== Inserir código que faça: se não for criado, retornar 400 (bad request) =====
     @PostMapping
     public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente c) {
         Cliente clienteCadastrado = service.cadastrarCliente(c);
@@ -38,7 +40,8 @@ public class ClienteController {
 
 
     //-	/clientes/{id} (GET) - chama o serviço recuperarPeloId e 
-    //pode retornar status 200 ou 404 se o cliente não existir
+    //pode retornar status 200 (ok) se o cliente existir ou 404 (not found) se o cliente não existir
+    // ===== Inserir código que faça: se o cliente não existir, retornar 404 (not found) =====
     @GetMapping("/{id}")
     public ResponseEntity<Cliente> recuperarPeloID(@PathVariable int id) {
         Cliente cliente = service.recuperarPeloId(id);
