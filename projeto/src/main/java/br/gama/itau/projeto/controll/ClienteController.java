@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.gama.itau.projeto.model.Cliente;
-import br.gama.itau.projeto.service.ClienteService;
+
+import br.gama.itau.projeto.Service.*;
+import br.gama.itau.projeto.Model.*;
+
 
 @RestController
 @RequestMapping("/clientes")
@@ -24,8 +26,8 @@ public class ClienteController {
     //-	/clientes (POST) - chama o serviço cadastrarCliente 
     //e pode retornar status 201 ou 400.
     @PostMapping
-    public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente c) {
-        Cliente clienteCadastrado = service.cadastrarCliente(c);
+    public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente novoCliente) {
+        Cliente clienteCadastrado = service.cadastrarCliente(novoCliente);
         return new ResponseEntity<Cliente>(clienteCadastrado, HttpStatus.CREATED);
     }
 
@@ -40,7 +42,7 @@ public class ClienteController {
     //-	/clientes/{id} (GET) - chama o serviço recuperarPeloId e 
     //pode retornar status 200 ou 404 se o cliente não existir
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente> recuperarPeloID(@PathVariable int id) {
+    public ResponseEntity<Cliente> recuperarPeloID(@PathVariable Integer id) {
         Cliente cliente = service.recuperarPeloId(id);
         return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
     }

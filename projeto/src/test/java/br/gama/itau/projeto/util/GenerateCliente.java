@@ -1,8 +1,9 @@
 package br.gama.itau.projeto.util;
 
-import br.gama.itau.projeto.model.Cliente;
+import br.gama.itau.projeto.Model.Cliente;
 
 public class GenerateCliente {
+    
 
     public static Cliente novoClienteToSave() {
         return Cliente.builder()
@@ -20,5 +21,4 @@ public class GenerateCliente {
             .telefoneCliente("11111")
             .build();
     }
-    
 }

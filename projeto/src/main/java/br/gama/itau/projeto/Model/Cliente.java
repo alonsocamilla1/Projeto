@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.model;
+package br.gama.itau.projeto.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,14 +6,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Builder
 @Getter
 @Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cliente {
     
     // Modelo de dados do Cliente
@@ -22,7 +28,8 @@ public class Cliente {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCliente;
+    @Column(name = "id")
+    private Integer idCliente;
 
     @Column(length = 100)
     private String nomeCliente;

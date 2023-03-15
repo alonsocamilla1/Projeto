@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.service;
+package br.gama.itau.projeto.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.gama.itau.projeto.model.Cliente;
-import br.gama.itau.projeto.repositorio.ClienteRepo;
+import br.gama.itau.projeto.Model.*;
+import br.gama.itau.projeto.Repositorio.*;
 import  br.gama.itau.projeto.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
@@ -23,11 +23,7 @@ public class ClienteService {
     // Recebe como entrada um objeto do tipo cliente e retorna-o completo caso ele tenha sido cadastrado com sucesso
     // Senão, retorna nulo (null)
     public Cliente cadastrarCliente(Cliente novoCliente) {
-        if(novoCliente.getIdCliente() > 0) {
-            return null;
-        }
-        Cliente clienteInserido = repo.save(novoCliente);
-        return clienteInserido; 
+        return repo.save(novoCliente);
     }
 
     // Método que retorna uma lista com todos os clientes cadastrados (apenas dados de cliente)
@@ -38,7 +34,7 @@ public class ClienteService {
    // Método que recebe um ID de cliente e retorna seus dados se encontrado
     // Caso não foi encontrado, retorna uma exceção
     
-    public Cliente recuperarPeloId(int id) {
+    public Cliente recuperarPeloId(Integer id) {
         Optional<Cliente> clienteOptional = repo.findById(id);
 
         if (clienteOptional.isEmpty()) {

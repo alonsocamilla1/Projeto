@@ -1,14 +1,14 @@
 package br.gama.itau.projeto.util;
 
-import br.gama.itau.projeto.model.Conta;
+import br.gama.itau.projeto.Model.Conta;
 
 public class GenerateConta {
-
-        public static Conta novaContaToSave() {
+    
+    public static Conta novaContaToSave() {
         return Conta.builder()
             .agencia(1111)
             .tipoConta(2)
-            .saldo(10)
+            .saldo(2.0)
             .build();
     }
 
@@ -17,7 +17,7 @@ public class GenerateConta {
             .numeroConta(1)
             .agencia(1111)
             .tipoConta(2)
-            .saldo(10)
+            .saldo(10.0)
             .build();
     }
 
@@ -26,7 +26,7 @@ public class GenerateConta {
         return Conta.builder()
             .agencia(2222)
             .tipoConta(1)
-            .saldo(20)
+            .saldo(20.0)
             .build();
     }
 
@@ -35,7 +35,7 @@ public class GenerateConta {
             .numeroConta(2)
             .agencia(2222)
             .tipoConta(1)
-            .saldo(20)
+            .saldo(20.0)
             .build();
     }
 }

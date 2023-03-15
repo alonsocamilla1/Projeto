@@ -1,6 +1,6 @@
-package br.gama.itau.projeto.dto;
+package br.gama.itau.projeto.DTO;
 
-import br.gama.itau.projeto.model.Cliente;
+import br.gama.itau.projeto.Model.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

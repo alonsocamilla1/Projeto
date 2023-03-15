@@ -1,45 +1,42 @@
-package br.gama.itau.projeto.model;
+package br.gama.itau.projeto.Model;
 
-//import java.sql.Date;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+
 @Entity
-@Builder
 @Getter
 @Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Movimentacao {
-    
-    // Modelo de dados da Movimentação
-    // Cria uma tabela Movimentação com número, data da operação, valor, tipo de operação, descrição e número da conta
-    // O número (numSeq) é incrementado automaticamente a cada movimentação criada
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private int numSeq;
-   
-    private LocalDate dataOperacao;
-    private double valor;
-    private int tipoOperacao;
+    private Integer numSeq;
 
-    @Column(length = 255)
+    private LocalDate dataOperacao;
+    private Double valor;
+    private Integer tipoOperacao;
     private String descricao;
-    
-    // A conta é uma coluna de relacionamento N:1 da tabela Movimentação com Conta, pegando a chave estrangeira
+
     @ManyToOne
-    @JoinColumn(name = "numeroConta")
-    private Conta numerConta;
+    @JoinColumn(name = "numero_conta")
+    private Conta conta;
 }

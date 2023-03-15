@@ -1,15 +1,13 @@
 package br.gama.itau.projeto.util;
 
+import br.gama.itau.projeto.Model.Movimentacao;
 import java.time.LocalDate;
 
-import br.gama.itau.projeto.model.Movimentacao;
-
 public class GenerateMovi {
-
     public static Movimentacao novaMoviToSave() {
         return Movimentacao.builder()
             .dataOperacao(LocalDate.now())
-            .valor(1)
+            .valor(1.0)
             .tipoOperacao(1)
             .build();
     }
@@ -18,7 +16,7 @@ public class GenerateMovi {
         return Movimentacao.builder()
             .numSeq(1)
             .dataOperacao(LocalDate.now())
-            .valor(1)
+            .valor(1.0)
             .tipoOperacao(1)
             .build();
     
