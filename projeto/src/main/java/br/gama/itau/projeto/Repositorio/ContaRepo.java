@@ -1,11 +1,12 @@
-package br.gama.itau.projeto.Repositorio;
+package br.gama.itau.projeto.repositorio;
 
 
 import org.springframework.data.repository.CrudRepository;
 
+import br.gama.itau.projeto.model.*;
+
 import java.util.List;
 import java.util.Optional;
-import br.gama.itau.projeto.Model.*;
 
 
 public interface ContaRepo extends CrudRepository<Conta, Integer>{

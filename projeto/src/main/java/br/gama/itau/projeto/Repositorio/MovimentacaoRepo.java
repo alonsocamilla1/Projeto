@@ -1,8 +1,9 @@
-package br.gama.itau.projeto.Repositorio;
+package br.gama.itau.projeto.repositorio;
 
 
 import org.springframework.data.repository.CrudRepository;
-import br.gama.itau.projeto.Model.*;
+
+import br.gama.itau.projeto.model.*;
 
 
 public interface  MovimentacaoRepo extends CrudRepository <Movimentacao, Integer> {
