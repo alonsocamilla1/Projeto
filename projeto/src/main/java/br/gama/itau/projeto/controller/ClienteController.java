@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.controll;
+package br.gama.itau.projeto.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

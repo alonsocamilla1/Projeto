@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.controll;
+package br.gama.itau.projeto.controller;
 
 import java.util.List;
 
