@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.gama.itau.projeto.Model.*;
-import br.gama.itau.projeto.Service.*;
+
+import br.gama.itau.projeto.model.*;
+import br.gama.itau.projeto.service.*;
 
 @RestController
 @RequestMapping("/contas")
