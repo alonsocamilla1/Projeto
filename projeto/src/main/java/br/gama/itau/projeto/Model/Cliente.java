@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.Model;
+package br.gama.itau.projeto.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,5 +39,8 @@ public class Cliente {
 
     @Column(length = 20, unique = true)
     private String telefoneCliente;
+
+    
+
 }
 

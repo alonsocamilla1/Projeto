@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.Model;
+package br.gama.itau.projeto.model;
 
 import java.time.LocalDate;
 
@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,6 +39,7 @@ public class Movimentacao {
     private String descricao;
 
     @ManyToOne
+    @JsonIgnoreProperties("movimentacoes")
     @JoinColumn(name = "numero_conta")
     private Conta conta;
 }

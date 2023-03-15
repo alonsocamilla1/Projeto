@@ -1,4 +1,6 @@
-package br.gama.itau.projeto.Model;
+package br.gama.itau.projeto.model;
+
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,8 +43,24 @@ public class Conta {
 
     // O idCliente é uma coluna de relacionamento N:1 da tabela Conta com Cliente,
     // pegando a chave estrangeira
+
     @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
+    
+    @OneToMany(mappedBy = "conta")
+    @JsonIgnoreProperties("contas")
+    private List<Movimentacao> movimentacoes;
+    
+    /*@OneToMany
+    @JoinColumn(name = "id_numSeq")
+    @JsonIgnoreProperties("conta") 
+    private Movimentacao movimentacao;*/
+    
+    
+
+    //@ManyToOne
+    //@JoinColumn(name = "id_cliente")
+    //private Cliente cliente;
 
 }
