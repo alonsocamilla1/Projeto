@@ -1,16 +1,15 @@
-package br.gama.itau.projeto.Service;
+package br.gama.itau.projeto.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import br.gama.itau.projeto.exception.NotFoundException;
+import br.gama.itau.projeto.model.Cliente;
+import br.gama.itau.projeto.model.Conta;
+import br.gama.itau.projeto.repositorio.*;
+
 import org.springframework.stereotype.Service;
-
-import br.gama.itau.projeto.Model.Conta;
-
-import br.gama.itau.projeto.Model.Cliente;
-import br.gama.itau.projeto.Repositorio.*;
 
 @Service
 public class ContaService {

@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.Service;
+package br.gama.itau.projeto.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.gama.itau.projeto.Model.*;
-import br.gama.itau.projeto.Repositorio.*;
 import  br.gama.itau.projeto.exception.NotFoundException;
+import br.gama.itau.projeto.model.*;
+import br.gama.itau.projeto.repositorio.*;
 import lombok.RequiredArgsConstructor;
 
 @Service

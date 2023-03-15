@@ -1,4 +1,4 @@
-package br.gama.itau.projeto.Service;
+package br.gama.itau.projeto.service;
 
 
 
@@ -8,8 +8,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.gama.itau.projeto.Model.*;
-import br.gama.itau.projeto.Repositorio.*;
+import br.gama.itau.projeto.model.*;
+import br.gama.itau.projeto.repositorio.*;
 
 @Service
 public class MovimentacaoService {
