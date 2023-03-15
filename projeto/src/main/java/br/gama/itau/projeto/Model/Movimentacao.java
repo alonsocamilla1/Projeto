@@ -25,6 +25,7 @@ import lombok.Setter;
 @Builder
 public class Movimentacao {
 
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer numSeq;

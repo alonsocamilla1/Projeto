@@ -23,7 +23,6 @@ import lombok.Setter;
 @Builder
 public class Conta {
 
-    
     // Modelo de dados da Conta
     // Cria uma tabela Conta com número, agência, tipo, saldo e id do cliente
     // O número da conta (numeroConta) é incrementado automaticamente a cada conta

@@ -25,6 +25,7 @@ public class Cliente {
     // Cria uma tabela Cliente com Id, nome, cpf e telefone
     // O Id é incrementado automaticamente a cada cliente criado
     
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
