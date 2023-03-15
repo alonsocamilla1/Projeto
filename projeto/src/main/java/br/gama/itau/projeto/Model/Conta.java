@@ -27,7 +27,6 @@ public class Conta {
     // Cria uma tabela Conta com número, agência, tipo, saldo e id do cliente
     // O número da conta (numeroConta) é incrementado automaticamente a cada conta
     // criada
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer numeroConta;
