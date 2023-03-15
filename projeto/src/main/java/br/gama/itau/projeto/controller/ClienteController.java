@@ -46,4 +46,5 @@ public class ClienteController {
         Cliente cliente = service.recuperarPeloId(id);
         return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
     }
+    
 }

@@ -23,6 +23,7 @@ public class MovimentacaoController {
     @Autowired
     private MovimentacaoService movimentacaoService;
 
+    
     @PostMapping
     public ResponseEntity<Movimentacao> cadastrarMovimentacao(@RequestBody Movimentacao movimentacao) {
         Movimentacao movimentacaoInserido = movimentacaoService.cadastrarMovimentacao(movimentacao);

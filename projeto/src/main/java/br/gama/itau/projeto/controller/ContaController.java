@@ -29,6 +29,7 @@ public class ContaController {
         return contaService.recuperarPeloNumero(numeroConta);
     }
 
+    
     @GetMapping("/cliente/{id}")
     public ResponseEntity<List<Conta>> recuperarContasPeloCliente(@PathVariable Integer id) {
         List<Conta> conta = contaService.recuperarContasPeloCliente(id);
