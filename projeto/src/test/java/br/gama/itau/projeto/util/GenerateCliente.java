@@ -1,6 +1,6 @@
 package br.gama.itau.projeto.util;
 
-import br.gama.itau.projeto.Model.Cliente;
+import br.gama.itau.projeto.model.Cliente;
 
 public class GenerateCliente {
     

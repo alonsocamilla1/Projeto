@@ -1,6 +1,6 @@
 package br.gama.itau.projeto.util;
 
-import br.gama.itau.projeto.Model.Conta;
+import br.gama.itau.projeto.model.Conta;
 
 public class GenerateConta {
     
