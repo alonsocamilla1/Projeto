@@ -35,11 +35,11 @@ public class ClienteService {
    // Método que recebe um ID de cliente e retorna seus dados se encontrado
     // Caso não foi encontrado, retorna uma exceção
     
-    public Cliente recuperarPeloId(Integer id) {
+    public Cliente recuperarPeloID(Integer id) {
         Optional<Cliente> clienteOptional = repo.findById(id);
 
         if (clienteOptional.isEmpty()) {
-            throw new NotFoundException("Cliente não encontrado");
+            throw new NotFoundException("se o cliente não existir");
         }
 
         Cliente clienteEncontrado = clienteOptional.get();

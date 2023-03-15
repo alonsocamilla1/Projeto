@@ -52,7 +52,7 @@ public void novoCliente_returnNull_whenClienteInvalido() {
 public void recuperarPeloId_returnCliente_whenIdExist() {
     BDDMockito.when(repo.findById(ArgumentMatchers.any(int.class)))
             .thenReturn(Optional.of(GenerateCliente.clienteValido()));
-    Cliente clienteEncontrado = service.recuperarPeloId(1);
+    Cliente clienteEncontrado = service.recuperarPeloID(1);
     assertThat(clienteEncontrado)
             .isNotNull();
     assertThat(clienteEncontrado.getIdCliente())
@@ -67,7 +67,7 @@ public void recuperarPeloId_throwException_whenIdNotExist() {
     // verifica se uma exception do tipo NotFoundException é lançada
     // () -> { } é uma chamada de método anônimo
     assertThrows(NotFoundException.class, () -> {
-        service.recuperarPeloId(clienteValido.getIdCliente());
+        service.recuperarPeloID(clienteValido.getIdCliente());
     });
 }
     

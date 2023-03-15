@@ -11,15 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ClienteDTO {
     // DTO (Data Transfer Object) = Objeto usado para transferência de dados, geralmente aplicando um filtro nos dados originais
-    private int id;
     private String nomeCliente;
     private String cpfCliente;
     private String telefoneCliente;
 
-    public ClienteDTO(Cliente c) {
-        this.id = c.getIdCliente();
-        this.nomeCliente = c.getNomeCliente();
-        this.cpfCliente = c.getCpfCliente();
-        this.telefoneCliente = c.getTelefoneCliente();
+    public ClienteDTO(Cliente conta) {
+        this.nomeCliente = conta.getNomeCliente();
+        this.cpfCliente = conta.getCpfCliente();
+        this.telefoneCliente = conta.getTelefoneCliente();
 }
 }
