@@ -43,24 +43,16 @@ public class Conta {
 
     // O idCliente é uma coluna de relacionamento N:1 da tabela Conta com Cliente,
     // pegando a chave estrangeira
-
     @ManyToOne
     @JoinColumn(name = "id_cliente")
+    @JsonIgnoreProperties("contas")
     private Cliente cliente;
     
     @OneToMany(mappedBy = "conta")
-    @JsonIgnoreProperties("contas")
+    @JsonIgnoreProperties("conta") // Ao preencher cada movimentação, não coloque os dados da conta
     private List<Movimentacao> movimentacoes;
     
-    /*@OneToMany
-    @JoinColumn(name = "id_numSeq")
-    @JsonIgnoreProperties("conta") 
-    private Movimentacao movimentacao;*/
-    
-    
 
-    //@ManyToOne
-    //@JoinColumn(name = "id_cliente")
-    //private Cliente cliente;
+   
 
 }

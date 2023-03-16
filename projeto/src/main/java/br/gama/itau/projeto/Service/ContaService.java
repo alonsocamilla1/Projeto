@@ -53,40 +53,13 @@ public class ContaService {
         return contaInserido;
     }
 
-     ///1
 
-    /*public void alterarSaldo(Conta conta, Double valor) {
-        conta.setSaldo(conta.getSaldo() + valor);
+
+    public void alterarSaldo(Conta conta, Double valor) {
+        conta.setSaldo(valor);
         repo.save(conta);
-    }*/
+    }
     
-   /*  public void alterarSaldo(Integer numeroConta, Double valor) {
-        Conta conta = recuperarPeloNumero(numeroConta);
-        conta.setSaldo(conta.getSaldo() + valor);
-        repo.save(conta);
-    }*/
-
-
-    
-    
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
-
-
-
+  
 
 }

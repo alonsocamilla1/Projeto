@@ -62,15 +62,15 @@ public class ContaController {
     }
 
     // Este método não é exposto como uma URL pública, apenas é chamado internamente
-    /*@PutMapping("/{numeroConta}/saldo") 1111
-    public void alterarSaldo(@PathVariable("numeroConta") int numeroConta, @RequestParam("valor") Double valor) {
+    /*@PutMapping("/{numeroConta}/saldo") 
+    public void alterarDados(@PathVariable("numeroConta") Integer numeroConta, @RequestParam("valor") Double valor) {
         Conta conta = contaService.recuperarPeloNumero(numeroConta);
         if (conta != null) {
-            contaService.alterarSaldo(conta, valor);
+            contaService.alterarDados(conta, valor);
         }
     }*/
 
-   /*  @PatchMapping("/{numeroConta}/saldo")
+ /*  @PatchMapping("/{numeroConta}/saldo")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void alterarSaldo(@PathVariable Integer numeroConta, @RequestBody Map<String, Double> requestBody) {
         Double valor = requestBody.get("valor");

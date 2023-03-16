@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
@@ -43,6 +44,13 @@ public class Cliente {
 
     @Column(length = 20, unique = true)
     private String telefoneCliente;
+
+    //Um cliente tem várias contas
+    @OneToMany(mappedBy = "cliente")
+    @JsonIgnoreProperties("cliente") // quando for preencher a lista de contas, não coloque o cliente de cada conta
+    private List<Conta> contas;
+   
+   
 
    
 
