@@ -26,10 +26,14 @@ public class ClienteController {
     //e pode retornar status 201 ou 400.
     @PostMapping
     public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente novoCliente) {
-        Cliente clienteCadastrado = service.cadastrarCliente(novoCliente);
-        return new ResponseEntity<Cliente>(clienteCadastrado, HttpStatus.CREATED);
+        Cliente clienteInserido = service.cadastrarCliente(novoCliente);
+        if(clienteInserido == null) {
+            return ResponseEntity.badRequest().build();
+        }
+        return new ResponseEntity<Cliente>(clienteInserido,HttpStatus.CREATED); // cód http 201 = inserido com sucesso
     }
-
+    
+    
     //-	/clientes (GET) - chama o serviço recuperarTodos
     @GetMapping
     public ResponseEntity<List<Cliente>> recuperarTodos() {
@@ -41,7 +45,7 @@ public class ClienteController {
     //-	/clientes/{id} (GET) - chama o serviço recuperarPeloId e 
     //pode retornar status 200 ou 404 se o cliente não existir
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente> recuperarPeloID(@PathVariable Integer id) {
+    public ResponseEntity<Cliente> recuperarPeloID(@PathVariable int id) {
         Cliente cliente = service.recuperarPeloID(id);
         return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
     }
