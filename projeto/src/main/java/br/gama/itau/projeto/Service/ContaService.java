@@ -49,6 +49,11 @@ public class ContaService {
     // completos caso tenha sido adicionado com sucessos
     // Senão, retorna nulo (null)
     public Conta adicionarConta(Conta conta) {
+
+        if(conta.getNumeroConta() > 0) {
+            return null;
+        }
+
         Conta contaInserido =  repo.save(conta);
         return contaInserido;
     }

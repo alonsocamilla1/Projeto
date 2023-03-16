@@ -58,7 +58,9 @@ public class ContaController {
         if (contaInserido == null) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.status(HttpStatus.CREATED).body(contaInserido);
+        return new ResponseEntity<Conta>(contaInserido,HttpStatus.CREATED); // cód http 201 = inserido com sucesso
+
+        //return ResponseEntity.status(HttpStatus.CREATED).body(contaInserido);
     }
 
     // Este método não é exposto como uma URL pública, apenas é chamado internamente
