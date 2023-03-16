@@ -30,18 +30,19 @@ public class ContaService {
         if (contaOptional.isPresent()) {
             return contaOptional.get();
         } else {
-            throw new NotFoundException("Cliente não encontrado");
+            throw new NotFoundException("Conta não existir");
         }
     }
 
-    public List<Conta> recuperarContasPeloCliente(int id) {
+
+     public List<Conta> recuperarContasPeloCliente(Integer id) {
         Optional<Cliente> cliente = clienteRepository.findById(id);
         return repo.findByCliente(cliente);
     }
 
-    public Conta alterarDados(Conta conta) {
-        return repo.save(conta);
-    }
+    /*public Conta alterarDados(Conta conta) {
+        return repo.save(conta); ó ver nao esqueca
+    }*/
 
     // Método que adicionas uma nova conta
     // Recebe como parâmetro uma conta (com ID do seu cliente) e retorna seus dados
@@ -51,5 +52,41 @@ public class ContaService {
         Conta contaInserido =  repo.save(conta);
         return contaInserido;
     }
+
+     ///1
+
+    /*public void alterarSaldo(Conta conta, Double valor) {
+        conta.setSaldo(conta.getSaldo() + valor);
+        repo.save(conta);
+    }*/
+    
+   /*  public void alterarSaldo(Integer numeroConta, Double valor) {
+        Conta conta = recuperarPeloNumero(numeroConta);
+        conta.setSaldo(conta.getSaldo() + valor);
+        repo.save(conta);
+    }*/
+
+
+    
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
 
 }
